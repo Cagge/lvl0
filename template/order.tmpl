@@ -1,0 +1,139 @@
+{{ define "order" }}
+
+    <div class="data">
+        <h2>Order:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>OrderUID</th>
+                <th>TrackNumber</th>
+                <th>Entry</th>
+                <th>Locale</th>
+                <th>InternalSignature</th>
+                <th>CustomerID</th>
+                <th>DeliveryService</th>
+                <th>Shardkey</th>
+                <th>SMID</th>
+                <th>DateCreated</th>
+                <th>OofShard</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ .OrderUID }}</td>
+                <td>{{ .TrackNumber }}</td>
+                <td>{{ .Entry }}</td>
+                <td>{{ .Locale }}</td>
+                <td>{{ .InternalSignature }}</td>
+                <td>{{ .CustomerID }}</td>
+                <td>{{ .DeliveryService }}</td>
+                <td>{{ .Shardkey }}</td>
+                <td>{{ .SmID }}</td>
+                <td>{{ .DateCreated }}</td>
+                <td>{{ .OofShard }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="data">
+        <h2>Delivery:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>ZIP</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Region</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ .Delivery.Name }}</td>
+                <td>{{ .Delivery.Phone }}</td>
+                <td>{{ .Delivery.Zip }}</td>
+                <td>{{ .Delivery.City }}</td>
+                <td>{{ .Delivery.Address }}</td>
+                <td>{{ .Delivery.Region }}</td>
+                <td>{{ .Delivery.Email }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="data">
+        <h2>Payment:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Transaction</th>
+                <th>RequestID</th>
+                <th>Currency</th>
+                <th>Provider</th>
+                <th>Amount</th>
+                <th>PaymentDT</th>
+                <th>Bank</th>
+                <th>DeliveryCost</th>
+                <th>GoodsTotal</th>
+                <th>CustomFee</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ .Payment.Transaction }}</td>
+                <td>{{ .Payment.RequestID }}</td>
+                <td>{{ .Payment.Currency }}</td>
+                <td>{{ .Payment.Provider }}</td>
+                <td>{{ .Payment.Amount }}</td>
+                <td>{{ .Payment.PaymentDt }}</td>
+                <td>{{ .Payment.Bank }}</td>
+                <td>{{ .Payment.DeliveryCost }}</td>
+                <td>{{ .Payment.GoodsTotal }}</td>
+                <td>{{ .Payment.CustomFee }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="data">
+        <h2>Items:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ChrtID</th>
+                <th>TrackNumber</th>
+                <th>Price</th>
+                <th>RID</th>
+                <th>Name</th>
+                <th>Sale</th>
+                <th>Size</th>
+                <th>TotalPrice</th>
+                <th>NmID</th>
+                <th>Brand</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{ range .Items }}
+                <tr>
+                    <td>{{ .ChrtID }}</td>
+                    <td>{{ .TrackNumber }}</td>
+                    <td>{{ .Price }}</td>
+                    <td>{{ .Rid }}</td>
+                    <td>{{ .Name }}</td>
+                    <td>{{ .Sale }}</td>
+                    <td>{{ .Size }}</td>
+                    <td>{{ .TotalPrice }}</td>
+                    <td>{{ .NmID }}</td>
+                    <td>{{ .Brand }}</td>
+                    <td>{{ .Status}}</td>
+                </tr>
+            {{ end }}
+            </tbody>
+        </table>
+    </div>
+
+{{ end }}

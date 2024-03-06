@@ -13,12 +13,19 @@
     </head>
   <body>
     <nav>
-        <a href='/'>Домашняя страница</a>
+        <a href='/result'>Домашняя страница</a>
     </nav>
     <p>Введили номер заказа</p>
     <form action='result'>
       <input name='a'>
       <input type='submit'>
     </form>
+    <div class="order">
+        {{ if . }}
+            {{ template "order" . }}
+        {{ else }}
+            <span>Нет данных</span>
+        {{ end }}
+    </div>
   </body>
 </html>
